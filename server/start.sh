@@ -56,7 +56,7 @@ fi
 # Customize variables below as necessary.
 
 ### Check for Updates on MBII on startup
-echo "**** Checking MBII Updates ****"
+echo-blue "**** Checking MBII Updates ****"
 cd /opt/openjk/MBII
 wget --inet4-only --execute="robots = off" -r -l 1 -nd -nH -N -A pk3,so,cfg,txt,mb2c,mbcr https://update.moviebattles.org/files/MBII/
 if [ "$GAME_ENGINE" == "openjk" ]
@@ -64,7 +64,10 @@ then
 	mv -f jampgamei386.so jampgamei386.jamp.so
 	cp jampgamei386.nopp.so jampgamei386.so
 fi
-echo "***** Done! *****"
+echo-green "***** Done! *****"
 cd /opt/openjk/
-## Start Sreve
-./$GAME_ENGINE +set fs_game MBII +set dedicated 2 +exec ${SERVER_CONFIG}
+sleep 4
+## Start Server
+until (sleep 1; ./$GAME_ENGINE +set dedicated 2 +set net_port "${SERVER_PORT}" +set fs_game MBII +exec "${SERVER_CONFIG}"); do
+    echo-red "Dedicated Server crashed with exit code $?. Restarting..." >&2
+done
