@@ -3,16 +3,16 @@ services:
   mb2:
     container_name: mb2-server
     build:
-      context: /datos/workspaces/01_github/mbii-docker-server
+      context: /srv/mbii-docker-server
       dockerfile: Dockerfile
     image: mb2-server:latest
     restart: always
     ports:
-      - "127.0.0.1:29070:29070/udp"
+      - "0.0.0.0:29070:29070/udp"
     volumes:
-      - /home/pvillaverde/workspaces/01_github/mbii-docker-server/MBII/:/opt/openjk/MBII
-      - /home/pvillaverde/workspaces/01_github/mbii-docker-server/base/:/opt/openjk/base
-      - /home/pvillaverde/workspaces/01_github/mbii-docker-server/config/:/opt/openjk/config
+      - /srv/mbii-docker-server/MBII/:/opt/openjk/MBII
+      - /srv/mbii-docker-server/base/:/opt/openjk/base
+      - /srv/mbii-docker-server/config/:/opt/openjk/config
     environment:
       SERVER_CONFIG: server-dot.cfg
       RTVRTM_CONFIG: server-dot-rtvrtm.cfg
