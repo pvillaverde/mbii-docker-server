@@ -3,7 +3,7 @@ services:
   mb2:
     container_name: mb2-server
     build:
-      context: /srv/mbii-docker-server
+      context: .
       dockerfile: Dockerfile
     image: mb2-server:latest
     restart: always
