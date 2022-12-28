@@ -43,7 +43,7 @@ if [ -f "/opt/openjk/MBII/${RTVRTM_CONFIG}" ]; then
 
 	until (
 		sleep 10
-		python /opt/rtvrtm/rtvrtm.py -c /opt/rtvrtm/rtvrtm.cfg --noupdate
+		python2 /opt/rtvrtm/rtvrtm.py -c /opt/rtvrtm/rtvrtm.cfg --noupdate
 	); do
 		echo "RTVRTM crashed with exit code $?. Restarting..." >&2
 	done &
