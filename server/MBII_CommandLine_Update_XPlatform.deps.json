@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "MBII_CommandLine_Update_XPlatform/1.0.0": {
+        "dependencies": {
+          "MBII_Patcher": "1.0.0"
+        },
+        "runtime": {
+          "MBII_CommandLine_Update_XPlatform.dll": {}
+        }
+      },
+      "MBII_Patcher/1.0.0": {
+        "runtime": {
+          "MBII_Patcher.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MBII_CommandLine_Update_XPlatform/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MBII_Patcher/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
