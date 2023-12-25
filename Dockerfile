@@ -13,7 +13,7 @@ RUN apt-get install -y libc6:i386 libncurses5:i386 libstdc++6:i386
 RUN apt-get install -y curl:i386 
 RUN apt-get install -y python-setuptools python2-dev 
 RUN apt-get install -y wget unzip
-RUN apt-get install dotnet-sdk-6.0
+RUN apt-get install -y dotnet-sdk-6.0
 
 # Server Files
 COPY server/* /opt/openjk/
