@@ -2,17 +2,18 @@ version: '3.7'
 services:
   mb2:
     container_name: mb2-server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: mb2-server:latest
+    image: pvillaverde/moviebattles:latest
     restart: always
     ports:
       - "0.0.0.0:29070:29070/udp"
     volumes:
-      - /srv/mbii-docker-server/MBII/:/opt/openjk/MBII
-      - /srv/mbii-docker-server/base/:/opt/openjk/base
-      - /srv/mbii-docker-server/config/:/opt/openjk/config
+      - /srv/moviebattles/MBII/:/opt/openjk/MBII
     environment:
-      SERVER_CONFIG: server-dot.cfg
-      RTVRTM_CONFIG: server-dot-rtvrtm.cfg
+      sv_hostname: Mb2 server
+      g_motd: test 
+      #discord: rkcXvX7
+      rconpassword: patata
+      # Calculate permissions config: https://puppytine.github.io/
+      g_smodAdminPassword_1: potatoe
+      g_smodConfig_1: 65535
+      # g_password: patata

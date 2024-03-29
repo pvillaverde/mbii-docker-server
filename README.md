@@ -19,11 +19,11 @@ Tired of migrating MBII servers and installing all dependencies, I built it for 
 - [x] The container checks for MBII and RTVRTM updates on startup.
 - [x] The container auto-restarts the MBII server if it fails for any reason, without restarting the container.
 - [x] Server logs goes to stdout and thus can be read with `docker logs`
-- [ ] Primary & Secondary RTVRTM configs.
+- [x] Primary & Secondary RTVRTM configs.
 - [ ] Option to schedule messages each X minutes.
 - [ ] Option to restart the container each day(if empty) and check for updates.
 - [ ] Management tool in order to issue rcon commands (status, kick, change map, etc..)
-- [ ] Template configs to create configs easier from scratch.
+- [x] Template configs to create configs easier from scratch.
 - [ ] Rotate map & mode automatically when the server is empty
 - [ ] Discord status updates?
 

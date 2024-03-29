@@ -1,0 +1,242 @@
+// Movie Battles II
+// Sample Server Config
+
+// Server Config:
+seta sv_hostname "{{sv_hostname}}"                          // Name of your server
+seta g_motd "{{g_motd}}"       // Message of the Day
+
+{% if discord != '' %}
+sets discord "{{discord}}"                                // Uncomment and customize invite code to show a Discord link next to listing at servers.moviebattles.org
+{% endif %}
+
+// Additional master servers to report to
+seta sv_master1 "master.moviebattles.org"       // Master servers - do not alter unless you know what you are doing.
+seta sv_master2 "master2.moviebattles.org"
+seta sv_master3 "master.jkhub.org"
+seta sv_master4 "masterjk3.ravensoft.com"
+seta sv_master5 ""
+
+// Administration:
+seta rconpassword "{{rconpassword}}"        // Rcon admin password - CHANGE THIS
+
+// See MBII_Readme (GameData folder) for info on bitvalues!
+// If g_smodconfig_1 is set to 0, smod system is disabled.
+// Accounts without password are disabled aswell.
+// https://puppytine.github.io/
+seta g_smodAdminPassword_1 "{{g_smodAdminPassword_1}}"
+seta g_smodConfig_1 "{{g_smodConfig_1}}"
+seta g_smodAdminPassword_2 "{{g_smodAdminPassword_2}}"
+seta g_smodConfig_2 "{{g_smodConfig_2}}"
+seta g_smodAdminPassword_3 "{{g_smodAdminPassword_3}}"
+seta g_smodConfig_3 "{{g_smodConfig_3}}"
+seta g_smodAdminPassword_4 "{{g_smodAdminPassword_4}}"
+seta g_smodConfig_4 "{{g_smodConfig_4}}"
+seta g_smodAdminPassword_5 "{{g_smodAdminPassword_5}}"
+seta g_smodConfig_5 "{{g_smodConfig_5}}"
+seta g_smodAdminPassword_6 "{{g_smodAdminPassword_6}}"
+seta g_smodConfig_6 "{{g_smodConfig_6}}"
+seta g_smodAdminPassword_7 "{{g_smodAdminPassword_7}}"
+seta g_smodConfig_7 "{{g_smodConfig_7}}"
+seta g_smodAdminPassword_8 "{{g_smodAdminPassword_8}}"
+seta g_smodConfig_8 "{{g_smodConfig_8}}"
+seta g_smodAdminPassword_9 "{{g_smodAdminPassword_9}}"
+seta g_smodConfig_9 "{{g_smodConfig_9}}"
+seta g_smodAdminPassword_10 "{{g_smodAdminPassword_10}}"
+seta g_smodConfig_10 "{{g_smodConfig_10}}"
+seta g_smodAdminPassword_11 "{{g_smodAdminPassword_11}}"
+seta g_smodConfig_11 "{{g_smodConfig_11}}"
+seta g_smodAdminPassword_12 "{{g_smodAdminPassword_12}}"
+seta g_smodConfig_12 "{{g_smodConfig_12}}"
+seta g_smodAdminPassword_13 "{{g_smodAdminPassword_13}}"
+seta g_smodConfig_13 "{{g_smodConfig_13}}"
+seta g_smodAdminPassword_14 "{{g_smodAdminPassword_14}}"
+seta g_smodConfig_14 "{{g_smodConfig_14}}"
+seta g_smodAdminPassword_15 "{{g_smodAdminPassword_15}}"
+seta g_smodConfig_15 "{{g_smodConfig_15}}"
+seta g_smodAdminPassword_16 "{{g_smodAdminPassword_16}}"
+seta g_smodConfig_16 "{{g_smodConfig_16}}"
+
+// Logging
+seta g_log "mb2_server.log"          // Filename to record logging information to. ex: "serverlog.txt" If left blank, do not log.
+seta g_logClientInfo "1"        // Logs client information changes if set to 1 (More detailed logging, useful in matching clients to IPs.)
+seta g_logSync "1"              // Use synchronous appending in log writes. (May impact server performance if set to 1 (Not generally recommended), but may provide more detailed logs if a crash occurs.)
+seta g_logExplicit "3"		// Needed for RTVRTM
+
+// Server Settings:
+seta sv_fps "40"                // Server FPS setting.
+seta sv_maxclients "32"         // Number of your server's player slots
+seta sv_privateClients "{{sv_privateClients}}"       // Number of private slots
+seta sv_privatePassword "{{sv_privatePassword}}"      // Password for using the private slots
+seta sv_pure "0"                // Pure setting - 0 = off, 1 = on. If enabled, clients can only use pk3s which match the ones on the server.
+seta sv_maxRate "25000"         // Server-side cap for /rate. Settings higher than 25000 do not improve the client's ping.
+seta sv_maxPing "0"             // Only players with a ping below this can connect to your server. "0" = disabled.
+seta sv_timeout "600"           // Timeout - do not alter unless you know what you are doing.
+seta sv_minSnaps "20"           // Sets minimum snaps client can have.
+seta sv_minRate "2000"          // Sets minimum rate client can have.
+seta sv_maxConnections "3"      // Maximum number of connections from one IP (prevents many crash scripts).
+seta sv_floodProtect "{{sv_floodProtect}}"        // Prevent flooding of chat and admin commands.
+
+// Movie Battles II Settings:
+seta g_gametype "7"             // 7 = Siege / MovieBattles. Do not modify.
+seta fraglimit "15"             // If a team reaches this amount of won rounds, it wins the map.
+seta roundlimit "20"            // When the total rounds reaches this amount, the map ends. Ties may happen.
+seta flaglimit "3"              // CTF maps only. How many flag captures a team needs to win a round.
+seta timelimit "0"              // Timelimit. Setting is ignored and controlled by map in Movie Battles II.
+seta g_MinMBPoints "80"         // Amount of MB class points players start out with.
+seta g_MBPointsPerRound "3"     // Amount of MB class points players gain every round.
+seta g_Authenticity "0"         // MB Mode setting - 0 = Open mode, 1 = Semi-Authentic, 2 = Full-Authentic, 3 = Duel, 4 = Legends
+
+// Custom Teams:
+seta g_teamSwap "0"             // Experimental, Open mode only. If set to 1, team identities will be swapped at round start (spawns and objectives reversed). Reload map if modified.
+//seta  g_CTFSpawnRotation "0"     // CTF maps only. Will swap the spawn location of the team and flag with the opposite team every other round.
+// Uncomment and modify g_siegeTeam settings below to use custom FA teams when in MB Mode 4 (Legends), or set to "none" to use map's default team (effectively the same as Full-Authentic). Reload map if modified.
+//seta g_siegeTeam1 "LEG_Good"  // Default if not configured: LEG_Good
+//seta g_siegeTeam2 "LEG_Evil"  // Default if not configured: LEG_Evil
+
+// Class Limits:
+// Set maximum players per class in open mode, or disable a class entirely. Each number represents a class's limit with entries separated by dashes.
+// Every value must be exactly two numbers (e.g. set 04 to limit a class to 4). Any value larger than sv_maxclients is considered infinite (default). 00 disables the class.
+// SD=Soldier TP=Trooper CM=Commander ET=EliteTrooper ST=Sith JD=Jedi BH=BountyHunter
+// HO=Hero SB=SBD WK=Wookiee DD=Droideka CT=CloneTrooper MD=Mandalorian AT=ARCTrooper
+//                       SD TP CM ET ST JD BH HO SB WK DD CT MD AT
+seta g_classlimits      "{{g_classlimits}}"
+seta g_classlimitsCTF   "{{g_classlimitsCTF}}"
+
+// Team Balance & Shuffle:
+seta g_balance "{{g_balance}}"              // Prevents teams from becoming imbalanced by blocking joining of a team if the player difference is too great.
+                                 // -1 = off, 0 = teams must be exactly equal or spectating will occur, 1 = teams allowed to be uneven by 1, 
+                                 // 2 = teams allowed to be uneven by 2, 3 = teams allowed to be uneven by 3, etc.
+seta g_ShuffleTimer "300"        // How long in seconds clients must wait before they can change teams again after shuffle is used.
+
+// Duel Mode Settings:
+seta g_DuelMidRoundRespawnTimerInitial "20" // Initial delay upon trying to join the round. Hard-coded minimum of 5 seconds.
+seta g_DuelMidRoundRespawnTimerNoLives "10" // Time that players must wait before being able to respawn again.
+seta g_DuelMidRoundRespawnTimerNoLivesIncrement "5" // After lives are depleted, how many seconds to increase the total respawn wait time. Set to 0 to disable.
+seta g_DuelLives "3"                // Custom number of lives for all players in duel mode. Valid range is 1-99. 
+seta g_DuelRespawn "1"              // If set to 0, players will no longer respawn for the current round once they've used up their lives.
+seta g_DuelRefillStatsOnKill "1"    // If set to 0, HP/FP/BP will no longer be refilled after killing an enemy (no effect on private duels).
+seta g_DuelTimeLimit "900"          // Custom time limit for a duel mode round in seconds. Valid range is 300-900 (5-15 minutes).
+seta g_DuelFriendlyTeam "0"         // If set to 1, players on your team will be treated as friendlies (same as other non-duel MB modes).
+seta g_PrivateDuels "1"             // Set to 0 to disable private duels in duel mode.
+
+// Anti-Cheat System:
+seta g_AntiCheat "1"             // Cheating or unverified clients will be automatically kicked. 0 = disabled, 1 = enabled.
+
+// Anti-Teamkill System:
+seta TK_MinorFriendly "1"        // Ignore damage amounts below 5 for purposes of applying TK_Spec (stray very minor splash damage is permissible).
+seta TK_Spec "500"               // Player will be forced to spectate if he/she has accrued this many TKPoints for team kills or hurting teammates. 0 = disabled.
+seta TK_Kick "750"               // Player will be kicked and temp-banned from the server if a player has gotten this many TKPoints for team kills or hurting teammates. 0 = disabled.
+seta TK_ForgiveAfterRounds "2"   // How many rounds must pass without any TKing by the player before TK_RemovedPerRound applies. 0 = always.
+seta TK_RemovedPerRound "50"     // Each round that passes without the player having done any TKing, this many TKPoints will be removed from their total. 0 = disabled.
+seta TK_TempBanForRounds "4"     // Number of rounds player gets banned for after exceeding TK_Kick count.
+
+// Competitive Settings:
+seta g_competitive "{{g_competitive}}"           // Bitwise cvar. Add the values below together for the settings you want enabled:
+//                  1            Hide HUD from spectators.
+//                  2            Restrict free spectator movement.
+//                  4            Spectators cannot chat with living players.
+//                  8            Spectators may only spectate players from their own team.
+//                  16           Hide enemy team's class icons on the scoreboard.
+//                  32           Disable friendly player indicators (only works if server is passworded).
+//                  Examples:
+//                  0            Nothing enabled, fully casual.
+//                  15           Enable all spectator related restrictions.
+//                  17           Hide HUD from spectators and enemy team's class icons on scoreboard.
+//                  63           All competitive settings enabled. Cvar value should not exceed this.
+
+// Misc:
+seta g_chatProtectTime "250"                    // Ammount of time that has to pass between two chat messages sent by player for them to be valid.
+seta g_password "{{g_password}}"                              // Password players need in order to be able to join your server.
+seta g_allowVote "0"                            // Allow votes - 0 = all votes disabled, 127 = all votes allowed. See readme for details.
+seta g_automapcycle "0"                         // Use automapcycle instead of a custom one. 0 = disabled, 1 = enabled.
+seta g_dismember "100"                          // Dismemberment probability. This is a percentage, i.e. 100 is the maximun setting. Clients have to adjust the cg_dismember cvar accordingly in order to see dismemberment.
+seta g_allowNPC "1"                             // Do not alter.
+seta g_AllowEntity_target_level_change "0"      // Whether or not to permit the target_level_change map entity to function. (Maps which utilize this feature can break map rotations.) 1 = enabled. 0 = disabled.
+seta g_InactivityKick "0"                       // Time in seconds until an inactive (i.e. not moving etc) client is kicked.
+seta g_InactivitySpec "180"                     // Time in seconds until an inactive (i.e. not moving etc) client is moved to spectator.
+seta g_filterban "1"                            // If "0" - only players who are on the banlist may join. 1: people on the banlist may not join.
+// Map rotation:
+//======== Rotate FA ================
+set full "seta g_Authenticity 2;vstr full_1"
+set full_1 "map mb2_enclave 		; set nextmap vstr full_2"
+set full_2 "map mb2_cmp_geocanyons	; set nextmap vstr full_3"
+set full_3 "map mb2_cmp_assault 	; set nextmap vstr full_4"
+set full_4 "map mb2_cmp_arctic 	; set nextmap vstr full_5"
+set full_5 "map mb2_cmp_lab 		; set nextmap vstr full_6"
+set full_6 "map mb2_cmp_endor 		; set nextmap vstr full_1"
+//======== Rotate OPEN ============== 2022-03-13
+set open "seta g_Authenticity 0;vstr open_1"
+set open_1 "map mb2_smuggler 		; set nextmap vstr open_2"
+set open_2 "map mb2_republiccruiser		; set nextmap vstr open_3"
+set open_3 "map mb2_deathstar 		; set nextmap vstr open_4"
+set open_4 "map mb2_republiccruiser ; set nextmap vstr open_5"
+set open_5 "map mb2_cmp_telos 	; set nextmap vstr open_6"
+set open_6 "map mb2_boc 	; set nextmap vstr open_7"
+set open_7 "map mb2_theed 			; set nextmap vstr open_8"
+set open_8 "map mb2_kamino 			; set nextmap vstr open_9"
+set open_9 "map mb2_lunarbase 		; set nextmap vstr open_10"
+set open_10 "map mb2_dotf 			; set nextmap vstr open_1"
+//======== Rotate Racing / Teams ================
+set race "seta g_Authenticity 2;vstr race_1"
+set race_1 "map um_swooprace 		; set nextmap vstr race_2"
+set race_2 "map um_jawarace		; set nextmap vstr race_3"
+set race_3 "map um_spacerace 		; set nextmap vstr race_4"
+set race_4 "map mb2_cmp_ascension 	; set nextmap vstr race_5"
+set race_5 "map halo_bc 			; set nextmap vstr race_6"
+set race_6 "map um_xwing 			; set nextmap vstr race_7"
+//======== Horror rotation ================
+set horror "seta g_Authenticity 2;vstr horror_1"
+set horror_1 "map Aliens2 			; set nextmap vstr horror_2"
+set horror_2 "map monster_forest	; set nextmap vstr horror_3"
+set horror_3 "map aliens3 			; set nextmap vstr horror_4"
+set horror_4 "map re_mansion 		; set nextmap vstr horror_5"
+set horror_5 "map slender 			; set nextmap vstr horror_6"
+set horror_6 "map Aliens 			; set nextmap vstr horror_7"
+set horror_7 "map mb2_cmp_hotfo 	; set nextmap vstr horror_8"
+set horror_8 "map um_nightmare 	; set nextmap vstr horror_1"
+//======== Fanfilm rotation ================
+set game "seta g_Authenticity 2;vstr game_1"
+set game_1 "map jp_siteb 			; set nextmap vstr game_2"
+set game_2 "map dc_universe		; set nextmap vstr game_3"
+set game_3 "map cod4_tanker 		; set nextmap vstr game_4"
+set game_4 "map matrix_bbrawl 		; set nextmap vstr game_5"
+set game_5 "map MGS2_AGear 		; set nextmap vstr game_6"
+set game_6 "map 300_Thermopylae 	; set nextmap vstr game_7"
+set game_7 "map fy_poolparty 		; set nextmap vstr game_8"
+set game_8 "map matrix_lobby		; set nextmap vstr game_9"
+set game_9 "map FFVII_ShinraHQ 	; set nextmap vstr game_10"
+set game_10 "map ww2_omaha 		; set nextmap vstr game_1"
+//======== Duel rotation ================
+set duel "seta g_Authenticity 3;vstr duel_1"
+set duel_1 "map mb2_duel_training 			; set nextmap vstr duel_2"
+set duel_2 "map mb2_duel_votj				; set nextmap vstr duel_3"
+set duel_3 "map mb2_duel_Revan 			; set nextmap vstr duel_4"
+set duel_4 "map um_bespin 					; set nextmap vstr duel_5"
+set duel_5 "map mb2_duel_starkiller_base 	; set nextmap vstr duel_6"
+set duel_6 "map FFVIIAC_Church 			; set nextmap vstr duel_7"
+set duel_7 "map mb2_duel_boc 				; set nextmap vstr duel_8"
+set duel_8 "map MGS2_Fortune				; set nextmap vstr duel_9"
+set duel_9 "map mb2_duel_dotf 				; set nextmap vstr duel_1"
+// SD=Soldier TP=Trooper CM=Commander ET=EliteTrooper ST=Sith JD=Jedi BH=BountyHunter
+// HO=Hero SB=SBD WK=Wookiee DD=Droideka CT=CloneTrooper MD=Mandalorian AT=ARCTrooper
+// ClassLimitsPresets			SD TP CM ET ST JD BH HO SB WK DD CT MD AT
+set cl_01 "seta g_classlimits 	50-50-50-50-00-00-00-00-00-00-00-00-00-00" // Soldiers + Elites
+set cl_02 "seta g_classlimits 	00-00-00-00-00-00-00-00-50-00-50-50-00-50" // Clone Wars (Clone,ARC,SBD,DeKA)
+set cl_03 "seta g_classlimits 	00-00-00-00-00-00-50-50-00-00-00-00-00-00" // Bounty + Heroes
+set cl_04 "seta g_classlimits 	50-50-50-50-00-00-50-50-50-50-50-50-50-50" // No Jedi/Sith
+set cl_05 "seta g_classlimits 	50-50-50-50-50-50-50-50-50-50-50-50-50-50" // Sin l�mites
+// Primer mapa del Rotate:
+set dotCity "seta g_Authenticity 2;vstr dotCity_Map"
+set dotCity_Map "devmap DoT_City;set nextmap vstr dotCity_Map"
+set noRotate "map "
+vstr open
+set d2 "map mb2_commtower;set nextmap vstr d3"
+set d3 "map mb2_tradefed;set nextmap vstr d4"
+set d4 "map mb2_lunarbase;set nextmap vstr d5"
+set d5 "map mb2_republiccruiser;set nextmap vstr d6"
+set d6 "map mb2_jabba;set nextmap vstr d7"
+set d7 "map mb2_jeditemple;set nextmap vstr d8"
+set d8 "map mb2_tatooine;set nextmap vstr d9"
+set d9 "map mb2_kamino;set nextmap vstr d1"
+
+vstr d1     // Start the first map in the rotation
