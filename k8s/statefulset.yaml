@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: moviebattles
+  namespace: games
+spec:
+  serviceName: moviebattles
+  replicas: 1
+  selector:
+    matchLabels:
+      app: moviebattles
+  template:
+    metadata:
+      labels:
+        app: moviebattles
+    spec:
+      containers:
+      - name: moviebattles
+        image: pvillaverde/moviebattles:latest
+        envFrom:
+        - secretRef:
+            name: moviebattles
+        - configMapRef:
+            name: moviebattles
+        ports:
+        - containerPort: 29070
+          protocol: UDP
+        volumeMounts:
+        - name: moviebattles-data
+          mountPath: /opt/openjk/MBII
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "1"
+          limits:
+            memory: "1Gi"
+            cpu: "4"
+  volumeClaimTemplates:
+  - metadata:
+      name: moviebattles-data
+    spec:
+      storageClassName: local-path
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 12Gi

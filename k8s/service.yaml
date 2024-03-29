@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: moviebattles
+  namespace: games
+spec:
+  type: LoadBalancer
+  ipFamilyPolicy: PreferDualStack
+  loadBalancerIP: XXX.XXX.XXX.XXX # this should be an IP in the MetalLB range
+  selector:
+    app: moviebattles
+  ports:
+  - name: "29070"
+    protocol: UDP
+    port: 29070
+    targetPort: 29070

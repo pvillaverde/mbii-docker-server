@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: moviebattles
+  namespace: games
+data:
+  sv_hostname: Mb2 Docker Server by pvillaverde
+  g_motd: Customize this message with g_motd env var
+  #discord: XXXXX
+  g_competitive: "0"
+  sv_floodProtect: "0"
+  # SD=Soldier TP=Trooper CM=Commander ET=EliteTrooper ST=Sith JD=Jedi BH=BountyHunter
+  # HO=Hero SB=SBD WK=Wookiee DD=Droideka CT=CloneTrooper MD=Mandalorian AT=ARCTrooper
+  # SD TP CM ET ST JD BH HO SB WK DD CT MD AT
+  g_classlimits: "50-50-50-50-02-02-50-50-50-50-50-50-50-50"
+  g_classlimitsCTF: "50-50-50-50-02-02-50-50-50-50-50-50-50-50"

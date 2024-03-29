@@ -7,7 +7,7 @@ services:
     ports:
       - "0.0.0.0:29070:29070/udp"
     volumes:
-      - /srv/moviebattles/MBII/:/opt/openjk/MBII
+      - ./MBII/:/opt/openjk/MBII
     environment:
       sv_hostname: Mb2 server
       g_motd: test 
